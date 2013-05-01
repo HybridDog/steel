@@ -1,20 +1,20 @@
 
 minetest.register_node("steel:plate_soft", {
-	description = "weiche Stahlplatte",
+	description = "soft steel plate",
 	tile_images = {"steelplatesoft.png"},
 	is_ground_content = true,
 	groups = {cracky=2},
 })
 
 minetest.register_node("steel:plate_hard", {
-	description = "harte Stahlplatte",
+	description = "hardened steel plate",
 	tile_images = {"steelplatehard.png"},
 	is_ground_content = true,
 	groups = {cracky=1},
 })
 
 minetest.register_node("steel:plate_rusted", {
-	description = "verrostete Stahlplatte",
+	description = "rusted steel plate",
 	tile_images = {"steel_rusted.png"},
 	is_ground_content = true,
 	groups = {cracky=1,choppy=1},
@@ -22,7 +22,7 @@ minetest.register_node("steel:plate_rusted", {
 
 minetest.register_node("steel:strut", {
 	drawtype = "glasslike",
-	description = "Gitter",
+	description = "strut",
 	tile_images = {"strut.png"},
 	is_ground_content = true,
 	paramtype= "light",
@@ -30,7 +30,7 @@ minetest.register_node("steel:strut", {
 	sounds =  default.node_sound_stone_defaults(),
 })
 minetest.register_node("steel:grate_soft", {
-	description = "weicher Stahlzaun",
+	description = "soft Steel Grate",
 	drawtype = "fencelike",
 	tile_images = {"worldgratesoft.png"},
 	inventory_image = "gratesoft.png",
@@ -46,7 +46,7 @@ minetest.register_node("steel:grate_soft", {
 })
 
 minetest.register_node("steel:grate_hard", {
-	description = "harter Stahlzaun",
+	description = "hardened Steel Grate",
 	drawtype = "fencelike",
 	tile_images = {"worldgratehard.png"},
 	inventory_image = "gratehard.png",
@@ -62,7 +62,7 @@ minetest.register_node("steel:grate_hard", {
 })
 
 minetest.register_node("steel:roofing", {
-	description = "Blech",
+	description = "corrugated steel roofing",
 	drawtype = "raillike",
 	tile_images = {"corrugated_steel.png", "corrugated_steel.png", "corrugated_steel.png", "corrugated_steel.png"},
 	inventory_image = "corrugated_steel.png",
@@ -72,7 +72,7 @@ minetest.register_node("steel:roofing", {
 	walkable = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-1/2, -1/2, -1/2, 1/2, -0.4, 1/2},
+		--fixed = <default>
 	},
 	groups = {bendy=2,snappy=1,dig_immediate=2},
 })
@@ -118,22 +118,6 @@ minetest.register_craft({
 	recipe = "steel:grate_soft",
 })
 
-local function scra(num, input)
-minetest.register_craft({
-	output = 'steel:scrap '..num,
-	recipe = {
-		{'steel:'..input},
-	}
-})
-end
-
-scra('2', 'strut')
-scra('2', 'grate_soft')
-scra('2', 'grate_hard')
-scra('1', 'roofing')
-scra('4', 'plate_soft')
-scra('4', 'plate_hard')
-
 minetest.register_craft({
 	output = 'steel:strut 5',
 	recipe = {
@@ -149,6 +133,49 @@ minetest.register_craft({
 		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
 	}
 })
+	--remelting recipes
+
+minetest.register_craft({
+	output = 'steel:scrap 2',
+	recipe = {
+		{'steel:strut'},
+	}
+})
+
+minetest.register_craft({
+	output = 'steel:scrap 2',
+	recipe = {
+		{'steel:grate_soft'},
+	}
+})
+
+minetest.register_craft({
+	output = 'steel:scrap 2',
+	recipe = {
+		{'steel:grate_hard'},
+	}
+})
+
+minetest.register_craft({
+	output = 'steel:scrap',
+	recipe = {
+		{'steel:roofing'},
+	}
+})
+
+minetest.register_craft({
+	output = 'steel:scrap 4',
+	recipe = {
+		{'steel:plate_soft'},
+	}
+})
+
+minetest.register_craft({
+	output = 'steel:scrap 4',
+	recipe = {
+		{'steel:plate_hard'},
+	}
+})
 
 minetest.register_craft({
 	output = 'default:iron_lump',
@@ -156,3 +183,7 @@ minetest.register_craft({
 		{'steel:scrap', 'steel:scrap'},
 	}
 })
+
+
+
+
