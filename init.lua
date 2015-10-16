@@ -1,21 +1,21 @@
 
 minetest.register_node("steel:plate_soft", {
 	description = "weiche Stahlplatte",
-	tile_images = {"steelplatesoft.png"},
+	tiles = {"steelplatesoft.png"},
 	is_ground_content = true,
 	groups = {cracky=2},
 })
 
 minetest.register_node("steel:plate_hard", {
 	description = "harte Stahlplatte",
-	tile_images = {"steelplatehard.png"},
+	tiles = {"steelplatehard.png"},
 	is_ground_content = true,
 	groups = {cracky=1},
 })
 
 minetest.register_node("steel:plate_rusted", {
 	description = "verrostete Stahlplatte",
-	tile_images = {"steel_rusted.png"},
+	tiles = {"steel_rusted.png"},
 	is_ground_content = true,
 	groups = {cracky=1,choppy=1},
 })
@@ -23,7 +23,7 @@ minetest.register_node("steel:plate_rusted", {
 minetest.register_node("steel:strut", {
 	drawtype = "glasslike",
 	description = "Gitter",
-	tile_images = {"strut.png"},
+	tiles = {"strut.png"},
 	is_ground_content = true,
 	paramtype= "light",
 	groups = {choppy=1,cracky=1},
@@ -32,7 +32,7 @@ minetest.register_node("steel:strut", {
 minetest.register_node("steel:grate_soft", {
 	description = "weicher Stahlzaun",
 	drawtype = "fencelike",
-	tile_images = {"worldgratesoft.png"},
+	tiles = {"worldgratesoft.png"},
 	inventory_image = "gratesoft.png",
 	wield_image = "gratesoft.png",
 	paramtype = "light",
@@ -48,7 +48,7 @@ minetest.register_node("steel:grate_soft", {
 minetest.register_node("steel:grate_hard", {
 	description = "harter Stahlzaun",
 	drawtype = "fencelike",
-	tile_images = {"worldgratehard.png"},
+	tiles = {"worldgratehard.png"},
 	inventory_image = "gratehard.png",
 	wield_image = "gratehard.png",
 	paramtype = "light",
@@ -64,7 +64,7 @@ minetest.register_node("steel:grate_hard", {
 minetest.register_node("steel:roofing", {
 	description = "Blech",
 	drawtype = "raillike",
-	tile_images = {"corrugated_steel.png", "corrugated_steel.png", "corrugated_steel.png", "corrugated_steel.png"},
+	tiles = {"corrugated_steel.png", "corrugated_steel.png", "corrugated_steel.png", "corrugated_steel.png"},
 	inventory_image = "corrugated_steel.png",
 	wield_image = "corrugated_steel.png",
 	paramtype = "light",
